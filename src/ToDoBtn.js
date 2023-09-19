@@ -1,6 +1,6 @@
 function ToDoBtn() {
     return(
-        <button>Add Task</button>
+        <button>+</button>
     )
 }
 

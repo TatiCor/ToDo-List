@@ -1,7 +1,7 @@
-function ToDoList(props) {
+function ToDoList({children}) {
     return (
         <ul>
-            {props.children} {/* No es un objeto como en javascrip */}
+            {children} {/* No es un objeto como en javascrip */}
         </ul>
     )
 }
