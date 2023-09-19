@@ -1,0 +1,24 @@
+.container-input{
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+}
+input {
+    width: 60%;
+    border-radius: 8px;
+    height: 50px;
+    text-align: center;
+    background-color: #af98ca;    
+    border: none;
+}
+input:hover {
+    background-color:  #f9f5f6b4;
+}
+input::placeholder {
+    color: #FEFFAC; 
+}
+input:focus {
+    outline: 2px solid #FEFFAC; /* Cambia el color, el grosor y el estilo del contorno según tus preferencias */
+    
+    
+}

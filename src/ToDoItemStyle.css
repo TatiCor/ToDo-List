@@ -1,0 +1,51 @@
+li {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    background-color: #fcdde081;
+    margin: 20px;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+li:hover {
+    background-color:  #f9f5f686;
+}
+
+.icon {
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    font-weight: bolder;
+    background-color:  #f9f5f6a6;
+    margin: 20px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    padding: 12px;
+    color: black;
+    cursor: pointer;
+    
+}
+
+.todo-item {
+    font-size: 24px;
+    margin: 24px 0 24px 24px;
+    width: calc(100% - 120px);
+}
+.icon-check--active {
+    background-color: #5cf341;
+}
+.todo-item--complete{
+    text-decoration: line-through;
+}
+
+
+@media (min-width: 850px) {
+    .icon-delete:hover {
+        color: red;
+    }
+    .icon-check:hover {
+        color: #5cf341;
+    }
+}
+

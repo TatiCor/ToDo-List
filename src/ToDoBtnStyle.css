@@ -1,17 +1,33 @@
 button {
     background-color: #FEFFAC;
-    color: #82A0D8;
-    font-size: 1.5rem;
-    border-radius: 50%;
-    height: 90px;
-    border: none;
-    width: 90px;
     position: fixed;
-    bottom: 15%;
-    left: 78%;
+    top: 35%;
+    left: 84%;
+    height: 70px;
+    width: 70px;
     text-align: center;
+    color: #82A0D8;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 50%;    
+    border: none;  
     outline: none; 
-    box-shadow: -5px 6px 10px 0px rgba(79, 79, 79, 0.575);
-
-
+    box-shadow: -5px 6px 10px 0px rgba(0, 0, 0, 0.575);
+    
 }
+
+@media (min-width: 850px) {
+    button {
+        top: 50%;
+        left: 75%;
+        height: 80px;
+        width: 80px;
+        transform: rotate(0);
+        transition: .2s ease;
+    }
+    button:hover{
+        transform: rotate(226deg);
+}  
+}
+
+

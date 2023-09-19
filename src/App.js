@@ -7,11 +7,11 @@ import { ToDoBtn } from './ToDoBtn';
 
 
 const defaultToDo = [
-  {text: "chop onions", completed: false},
+  {text: "chop onions", completed: true},
   {text: "do react course", completed: false},
   {text: "practice english", completed: false},
   {text: "work in my pizzaProject", completed: false},
-  {text: "Do my homework", completed: false}
+  {text: "Do my homework", completed: true}
 ];
 function App() {
   return (

@@ -1,6 +1,9 @@
+import './ToDoSearchStyle.css'
 function ToDoSearch(){
     return (
-        <input placeholder="Cortar cebolla" />
+        <div className='container-input'>
+            <input placeholder="Buscar tarea" />
+        </div>
     )
 }
 

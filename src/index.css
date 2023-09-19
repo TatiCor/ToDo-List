@@ -1,5 +1,5 @@
 body {
-  display: grid;
+    display: grid;
     place-items: center;
     margin: 0;
     background-color: #35155D;
@@ -7,7 +7,8 @@ body {
     color: #F9F5F6;
     height: 100vh;
     width: 100%;
-
+    margin: 0;
+    padding: 0;
 }
 
 #root {
@@ -17,11 +18,12 @@ body {
   background-image: url('https://i.pinimg.com/564x/35/37/10/353710a253ff533d2e4b1cc8c945ec3b.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center;  
+  width: 100%;
   gap: 10px; 
   border-radius: 8%;
-  padding: 20px; /* Agregamos un poco de espacio entre el contenido y el borde */
-  margin-top: 60px;  
+  padding: 20px;
+  margin-top: 20px;  
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3), 
               0px 0px 30px rgba(0, 0, 0, 0.2), 
               0px 0px 40px rgba(0, 0, 0, 0.2);
@@ -29,3 +31,22 @@ body {
 }
 
 
+@media (min-width: 850px) {
+  #root {
+    width: 50%;
+    border-radius: 12px;
+  }
+
+  button {
+    top: 50%;
+    left: 70%;
+    height: 80px;
+    width: 80px;
+    transform: rotate(0);
+    transition: .2s ease;
+  }
+  button:hover{
+    transform: rotate(226deg);
+}
+
+}
