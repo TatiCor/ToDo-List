@@ -1,20 +1,30 @@
 body {
-  margin: 0;
-  background-image: url('https://i.pinimg.com/564x/b4/5e/84/b45e8435763d98ad1ed44ff627b67137.jpg');
-  background-size: cover;
-  background-position: center;
-  font-family: sans-serif;
-  color: #F9F5F6;
+  display: grid;
+    place-items: center;
+    margin: 0;
+    background-color: #35155D;
+    font-family: sans-serif;
+    color: #F9F5F6;
+    height: 100vh;
+    width: 100%;
 
 }
 
 #root {
-  background-color: rgba(230, 221, 221, 0.445);
   display: grid;
   grid-template-columns: 1fr; 
   grid-auto-rows: minmax(auto, max-content); 
+  background-image: url('https://i.pinimg.com/564x/35/37/10/353710a253ff533d2e4b1cc8c945ec3b.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   gap: 10px; 
-
+  border-radius: 8%;
+  padding: 20px; /* Agregamos un poco de espacio entre el contenido y el borde */
+  margin-top: 60px;  
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3), 
+              0px 0px 30px rgba(0, 0, 0, 0.2), 
+              0px 0px 40px rgba(0, 0, 0, 0.2);
   
 }
 

@@ -1,0 +1,17 @@
+button {
+    background-color: #FEFFAC;
+    color: #82A0D8;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    height: 90px;
+    border: none;
+    width: 90px;
+    position: fixed;
+    bottom: 15%;
+    left: 78%;
+    text-align: center;
+    outline: none; 
+    box-shadow: -5px 6px 10px 0px rgba(79, 79, 79, 0.575);
+
+
+}
