@@ -1,10 +1,10 @@
+import React from 'react';
 import { ToDoCounter } from './ToDoCounter';
 import { ToDoSearch } from "./ToDoSearch";
-import './App.css';
 import { ToDoItem } from './ToDoItem';
 import { ToDoList } from './ToDoList';
 import { ToDoBtn } from './ToDoBtn';
-import React from 'react';
+
 
 const defaultToDo = [
   {text: "chop onions", completed: false},
@@ -15,7 +15,7 @@ const defaultToDo = [
 ];
 function App() {
   return (
-    <React.Fragment>
+    <> {/*Dejar vacíos los <> equivale a poner React.Fragment */}
         {/* insertamos componentes dentro de otro componente (App)*/}
 
       <ToDoCounter completed={5} total={10}/>
@@ -34,7 +34,7 @@ function App() {
 
       <ToDoBtn />  
       
-    </React.Fragment>
+    </>
   );
 }
 
