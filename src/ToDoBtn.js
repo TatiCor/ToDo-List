@@ -1,7 +1,12 @@
 import './ToDoBtnStyle.css'
 function ToDoBtn() {
     return(
-        <button>+</button>
+        <button onClick={
+            (event)=>{
+                console.log("Hiciste click");
+                console.log(event.target);
+            }
+        }>+</button>
     )
 }
 
