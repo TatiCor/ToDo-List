@@ -29,8 +29,7 @@ function App() {
   const totalTodos = todos.length;
 
   const [searchValue, setSearchValue] = React.useState(''); /* Definimos su valor inicial vacío */
-  console.log('Usuarios buscan: ' + searchValue);
-
+  
 
   /*  2 - Creamos una función que nos permita filtrar los elementos del arreglo por texto o completados */
 
@@ -43,6 +42,25 @@ function App() {
     }
   );
 
+  const completeTodo = (text)=>{
+    const newTodos = [...todos] //hacemos una copia del array todos
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    ); //identificamos por el texto el todo que queremos.
+    
+    newTodos[todoIndex].completed = true; // marcar como completado
+    setTodos(newTodos); // establezco que se actualice el estado
+  }
+
+  const deleteTodo = (text)=>{
+    const newTodos = [...todos] //hacemos una copia del array todos
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    ); //identificamos por el texto el todo que queremos.
+
+    newTodos.splice(todoIndex, 1); // marcar como completado
+    setTodos(newTodos); // establezco que se actualice el estado
+  }
 
   return (
     <> {/*Dejar vacíos los <> equivale a poner React.Fragment */}
@@ -61,6 +79,8 @@ function App() {
             key={todo.text} 
             text={todo.text}
             completed={todo.completed}
+            onComplete={()=> { completeTodo(todo.text) }}
+            onDelete={()=>{ deleteTodo(todo.text)}}
           />
         ))}
         
