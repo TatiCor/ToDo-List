@@ -1,12 +1,20 @@
+import React from 'react';
 import './ToDoSearchStyle.css'
-function ToDoSearch(){
+function ToDoSearch({
+    searchValue,
+    setSearchValue
+}){
+    
     return (
         <div className='container-input'>
-            <input placeholder="Buscar tarea" className='TodoSearch' onChange={
+            <input placeholder="Buscar tarea" className='TodoSearch'
+        
+            value={searchValue} /* Declaro el valor inicial del estado. Nos guarda el valor del input*/
+
+            onChange={
                 (event) => {
-                    console.log('Escribiste en TodoSearch');
-                    console.log(event.target);
-                    console.log(event.target.value);
+                    setSearchValue(event.target.value);
+                    
                 }
             }/>
         </div>
@@ -14,3 +22,4 @@ function ToDoSearch(){
 }
 
 export { ToDoSearch };
+
