@@ -1,96 +1,75 @@
 import React from 'react';
 import { ToDoCounter } from './ToDoCounter';
-import { ToDoSearch } from "./ToDoSearch";
+import { ToDoSearch } from './ToDoSearch';
 import { ToDoItem } from './ToDoItem';
 import { ToDoList } from './ToDoList';
 import { ToDoBtn } from './ToDoBtn';
 
-
 const defaultToDo = [
-  {text: "chop onions", completed: true},
-  {text: "do react course", completed: false},
-  {text: "practice english", completed: false},
-  {text: "work in my pizzaProject", completed: false},
-  {text: "Do my homework", completed: true},
-  {text: "Cambiar de trabajo", completed: false},
-  
+  { text: 'chop onions', completed: true },
+  { text: 'do react course', completed: false },
+  { text: 'practice English', completed: false },
+  { text: 'work on my pizza project', completed: false },
+  { text: 'Do my homework', completed: true },
+  { text: 'Cambiar de trabajo', completed: false },
 ];
+
 function App() {
-  /* El estado se declara en el componente principal App */
-
   const [todos, setTodos] = React.useState(defaultToDo);
-  
-  /* 1- Declaramos la variable todos como un array de objetos con las propiedades text y completed*/
-  
-  const completedTodos = todos.filter(
-    todo => !!todo.completed
-    ).length;
-  
+  const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
+  const [searchValue, setSearchValue] = React.useState('');
+  const [newTodoText, setNewTodoText] = React.useState(''); // Estado para la nueva tarea
 
-  const [searchValue, setSearchValue] = React.useState(''); /* Definimos su valor inicial vacío */
-  
+  const searchedTodos = todos.filter((todo) => {
+    const todoText = todo.text.toLowerCase();
+    const searchText = searchValue.toLowerCase();
+    return todoText.includes(searchText);
+  });
 
-  /*  2 - Creamos una función que nos permita filtrar los elementos del arreglo por texto o completados */
+  const completeTodo = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
 
-  const searchedTodos = todos.filter(
-    (todo)=>{
-      const todoText = todo.text.toLowerCase();
-      const searchText = searchValue.toLocaleLowerCase()
+  const deleteTodo = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  };
 
-      return todoText.includes(searchText)
-    }
-  );
-
-  const completeTodo = (text)=>{
-    const newTodos = [...todos] //hacemos una copia del array todos
-    const todoIndex = newTodos.findIndex(
-      (todo) => todo.text == text
-    ); //identificamos por el texto el todo que queremos.
-    
-    newTodos[todoIndex].completed = true; // marcar como completado
-    setTodos(newTodos); // establezco que se actualice el estado
-  }
-
-  const deleteTodo = (text)=>{
-    const newTodos = [...todos] //hacemos una copia del array todos
-    const todoIndex = newTodos.findIndex(
-      (todo) => todo.text == text
-    ); //identificamos por el texto el todo que queremos.
-
-    newTodos.splice(todoIndex, 1); // marcar como completado
-    setTodos(newTodos); // establezco que se actualice el estado
-  }
+  const addTodo = (newTodoText) => {
+    const newTodo = { text: newTodoText, completed: false };
+    setTodos([...todos, newTodo]);
+    setNewTodoText(''); // Limpiar el campo de entrada después de agregar la tarea
+  };
 
   return (
-    <> {/*Dejar vacíos los <> equivale a poner React.Fragment */}
-        {/* insertamos componentes dentro de otro componente (App)*/}
-
-      <ToDoCounter 
-        completed={completedTodos} 
-        total={totalTodos}/>
-      <ToDoSearch
-        searchValue={searchValue}
-        setSearchValue={setSearchValue} />
-
+    <>
+      <ToDoCounter completed={completedTodos} total={totalTodos} />
+      <ToDoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       <ToDoList>
-        {searchedTodos.map(todo => (
-          <ToDoItem 
-            key={todo.text} 
+        {searchedTodos.map((todo) => (
+          <ToDoItem
+            key={todo.text}
             text={todo.text}
             completed={todo.completed}
-            onComplete={()=> { completeTodo(todo.text) }}
-            onDelete={()=>{ deleteTodo(todo.text)}}
+            onComplete={() => {
+              completeTodo(todo.text);
+            }}
+            onDelete={() => {
+              deleteTodo(todo.text);
+            }}
           />
         ))}
-        
       </ToDoList>
+      <ToDoBtn addTodo={addTodo} newTodoText={newTodoText} setNewTodoText={setNewTodoText} />
 
-      <ToDoBtn />  
-      
     </>
   );
 }
 
-
-export default App; // permite renderizar en mi html
+export default App;
