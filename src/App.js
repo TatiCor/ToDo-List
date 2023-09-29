@@ -15,12 +15,15 @@ const defaultToDo = [
 ];
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultToDo);
+// Declarar estados
+
+  const [todos, setTodos] = React.useState(defaultToDo); // Estado para establecer to dos 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
-  const [searchValue, setSearchValue] = React.useState('');
-  const [newTodoText, setNewTodoText] = React.useState(''); // Estado para la nueva tarea
+  const [searchValue, setSearchValue] = React.useState(''); // estado para buscar y filtrar
+  const [newTodoText, setNewTodoText] = React.useState(''); // Estado para agregar la nueva tarea
 
+// funciones 
   const searchedTodos = todos.filter((todo) => {
     const todoText = todo.text.toLowerCase();
     const searchText = searchValue.toLowerCase();
@@ -49,8 +52,14 @@ function App() {
 
   return (
     <>
-      <ToDoCounter completed={completedTodos} total={totalTodos} />
-      <ToDoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      <ToDoCounter 
+        completed={completedTodos} 
+        total={totalTodos} 
+      />
+      <ToDoSearch 
+        searchValue={searchValue} 
+        setSearchValue={setSearchValue} 
+      />
       <ToDoList>
         {searchedTodos.map((todo) => (
           <ToDoItem
@@ -63,10 +72,14 @@ function App() {
             onDelete={() => {
               deleteTodo(todo.text);
             }}
-          />
+      />
         ))}
       </ToDoList>
-      <ToDoBtn addTodo={addTodo} newTodoText={newTodoText} setNewTodoText={setNewTodoText} />
+
+      <ToDoBtn 
+        addTodo={addTodo} 
+        newTodoText={newTodoText} 
+        setNewTodoText={setNewTodoText} />
 
     </>
   );

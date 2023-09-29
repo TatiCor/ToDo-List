@@ -1,15 +1,16 @@
 import React from 'react';
 import './ToDoBtnStyle.css';
-
+// en el componente se establece el JSX
 function ToDoBtn(props) {
-  return (
+    return (
         <div className='form-container'>
             <form
-        onSubmit={(event) => {
-            event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario (recargar la página)
-            if (props.newTodoText.trim() !== '') { // Verificar si el texto de la nueva tarea no está vacío
-            props.addTodo(props.newTodoText); // Llama a la función addTodo pasada como prop con el nuevo texto
-            }
+                onSubmit={(event) => {
+                    event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario (recargar la página)
+
+                    if (props.newTodoText.trim() !== '') { // Verificar si el texto de la nueva tarea no está vacío
+                    props.addTodo(props.newTodoText); // Llama a la función addTodo pasada como prop con el nuevo texto
+                    }
         }}
         >
         <input
@@ -22,7 +23,7 @@ function ToDoBtn(props) {
         </form>
     </div>
     
-  );
+    );
 }
 
 export { ToDoBtn };
