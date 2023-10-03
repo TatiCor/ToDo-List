@@ -1,21 +1,23 @@
 import { ReactComponent as CheckSVG } from './CheckIcon.svg';
 import { ReactComponent as DeleteSVG} from './DeleteIcon.svg';
-
+import './TodoIcon.css'
 
 const iconTypes = {
-    "check": <CheckSVG/>,
-    "delete": <DeleteSVG/>,
+    "check": (color)=> <CheckSVG className="icon-svg" fill={color}/>,
+    "delete": (color)=> <DeleteSVG className="icon-svg" fill={color}/>,
 }
 
-function TodoIcon({type, onClick}){
+function TodoIcon({type, onClick, color}){
     return(
         <span
-            className={`icon icon-svg icon-${type} `}
-            onClick={onClick}> 
-            {iconTypes[type]}
+            className={`icon-container icon-container-${type} `}
+            onClick={onClick}                   > 
+            {iconTypes[type](color)}
             
         </span>
     );
 }
 
 export { TodoIcon };
+
+// Este archivo simula "una librería" donde se importan nuestros icons

@@ -15,7 +15,7 @@ const defaultToDo = [
 ];
 
 function App() {
-// Declarar estados
+  // Declarar estados
 
   const [todos, setTodos] = React.useState(defaultToDo); // Estado para establecer to dos 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
@@ -23,7 +23,7 @@ function App() {
   const [searchValue, setSearchValue] = React.useState(''); // estado para buscar y filtrar
   const [newTodoText, setNewTodoText] = React.useState(''); // Estado para agregar la nueva tarea
 
-// funciones 
+  // funciones 
   const searchedTodos = todos.filter((todo) => {
     const todoText = todo.text.toLowerCase();
     const searchText = searchValue.toLowerCase();
