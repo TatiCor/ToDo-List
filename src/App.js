@@ -5,19 +5,32 @@ import { ToDoItem } from './ToDoItem';
 import { ToDoList } from './ToDoList';
 import { ToDoBtn } from './ToDoBtn';
 
-const defaultToDo = [
+/* const defaultToDo = [
   { text: 'chop onions', completed: true },
   { text: 'do react course', completed: false },
   { text: 'practice English', completed: false },
   { text: 'work on my pizza project', completed: false },
   { text: 'Do my homework', completed: true },
   { text: 'Cambiar de trabajo', completed: false },
-];
+]; 
+localStorage.setItem('Todos_V1', JSON.stringify(defaultToDo));
+localStorage.removeItem('Todos_V1', defaultToDo);*/
 
 function App() {
-  // Declarar estados
+  // LocalStorage
 
-  const [todos, setTodos] = React.useState(defaultToDo); // Estado para establecer to dos 
+  const localStorageTodos = localStorage.getItem('Todos_V1');
+  let parsedTodos
+  if (!localStorageTodos) {
+    localStorage.setItem('Todos_V1', JSON.stringify([]))
+    parsedTodos = []
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos);  // primero nuestra app va a revisar si hay algo en localstorage.
+  }
+  
+
+  // Declarar estados
+  const [todos, setTodos] = React.useState(parsedTodos); // Estado para establecer to dos 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
   const [searchValue, setSearchValue] = React.useState(''); // estado para buscar y filtrar
@@ -30,25 +43,39 @@ function App() {
     return todoText.includes(searchText);
   });
 
+  //fx para actualizar localStorage y estado
+  const saveTodosLS = (newTodos) => {
+    localStorage.setItem('Todos_V1', 
+    JSON.stringify(newTodos)); // actualiza el Storage
+    
+    setTodos(newTodos) //actualiza el estado
+  }
+
   const completeTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
     newTodos[todoIndex].completed = true;
-    setTodos(newTodos);
+    saveTodosLS(newTodos);
   };
 
   const deleteTodo = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodosLS(newTodos);
   };
 
-  const addTodo = (newTodoText) => {
+  const addTodo = () => {
+    if (newTodoText.trim() === '') {
+      return; // Evitar agregar tareas vacías
+    }
+  
     const newTodo = { text: newTodoText, completed: false };
-    setTodos([...todos, newTodo]);
-    setNewTodoText(''); // Limpiar el campo de entrada después de agregar la tarea
+    const newTodos = [...todos, newTodo];
+    saveTodosLS(newTodos);
+    setNewTodoText('');
   };
+  
 
   return (
     <>
