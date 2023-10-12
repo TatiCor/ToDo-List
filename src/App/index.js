@@ -1,36 +1,18 @@
 import React from 'react';
-import { ToDoCounter } from './ToDoCounter';
-import { ToDoSearch } from './ToDoSearch';
-import { ToDoItem } from './ToDoItem';
-import { ToDoList } from './ToDoList';
-import { ToDoBtn } from './ToDoBtn';
+import { useLocalStorage } from './useLocalStorage';
+import { ToDoCounter } from '../ToDoCounter';
+import { ToDoSearch } from '../ToDoSearch';
+import { ToDoItem } from '../TodoItem/ToDoItem';
+import { ToDoList } from '../ToDoList';
+import { ToDoBtn } from '../ToDoBtn';
 
-/* const defaultToDo = [
-  { text: 'chop onions', completed: true },
-  { text: 'do react course', completed: false },
-  { text: 'practice English', completed: false },
-  { text: 'work on my pizza project', completed: false },
-  { text: 'Do my homework', completed: true },
-  { text: 'Cambiar de trabajo', completed: false },
-]; 
-localStorage.setItem('Todos_V1', JSON.stringify(defaultToDo));
-localStorage.removeItem('Todos_V1', defaultToDo);*/
+
+
 
 function App() {
-  // LocalStorage
-
-  const localStorageTodos = localStorage.getItem('Todos_V1');
-  let parsedTodos
-  if (!localStorageTodos) {
-    localStorage.setItem('Todos_V1', JSON.stringify([]))
-    parsedTodos = []
-  } else {
-    parsedTodos = JSON.parse(localStorageTodos);  // primero nuestra app va a revisar si hay algo en localstorage.
-  }
-  
 
   // Declarar estados
-  const [todos, setTodos] = React.useState(parsedTodos); // Estado para establecer to dos 
+  const [todos, saveTodosLS] = useLocalStorage('Todos_V1', []); // Estado para establecer to dos 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
   const [searchValue, setSearchValue] = React.useState(''); // estado para buscar y filtrar
@@ -43,13 +25,6 @@ function App() {
     return todoText.includes(searchText);
   });
 
-  //fx para actualizar localStorage y estado
-  const saveTodosLS = (newTodos) => {
-    localStorage.setItem('Todos_V1', 
-    JSON.stringify(newTodos)); // actualiza el Storage
-    
-    setTodos(newTodos) //actualiza el estado
-  }
 
   const completeTodo = (text) => {
     const newTodos = [...todos];
