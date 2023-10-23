@@ -6,15 +6,20 @@ li {
     border-radius: 8px;
     padding: 20px;
     text-align: center;
-}
-li:hover {
-    background-color:  #f9f5f686;
-}
+    min-height: 80px; /* Establece una altura mínima para mantener el tamaño fijo */
+  }
+  
+  li:hover {
+    background-color: #f9f5f686;
 
+  }
+  
 
 .todo-item {
     font-size: 24px;
     margin: 24px 0 24px 24px;
     width: calc(100% - 120px);
+
+    
 }
 

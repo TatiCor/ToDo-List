@@ -31,7 +31,7 @@ body {
 }
 
 
-@media (min-width: 850px) {
+@media (min-width: 1000px) {
   #root {
     width: 50%;
     border-radius: 12px;

@@ -1,0 +1,65 @@
+/* TodosLoading.css */
+.container-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+}
+
+.loading-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: sans-serif; 
+  position: relative;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ee7652be, #e73c7eab, #23a5d594, #23d5ab8f);
+  background-size: 600% 600%; /* Asegura que el gradiente cubra el fondo completamente */
+  animation: rotate 3s linear infinite; /* Agrega la animación al gradiente */
+}
+
+.loading-text::before {
+  content: 'Loading';
+  animation: loading 0.8s steps(6) forwards;
+}
+
+@keyframes loading {
+  0% {
+    content: 'L';
+  }
+  20% {
+    content: 'Loa';
+  }
+  40% {
+    content: 'Loadi';
+  }
+  70% {
+    content: 'Loading';
+  }
+  80% {
+    content: '.';
+  }
+  90% {
+    content: '..';
+  }
+  100% {
+    content: '...';
+  }
+}
+
+@keyframes rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
