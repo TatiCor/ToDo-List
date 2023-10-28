@@ -4,7 +4,7 @@ import { useLocalStorage } from "./useLocalStorage.js"
 const TodoContext = React.createContext(); // creamos un contexto
 
 function TodoProvider({children}) {
-    // Declarar estados
+    // States
     const {
         item: todos, 
         saveItem: saveTodosLS,
@@ -14,14 +14,25 @@ function TodoProvider({children}) {
     const completedTodos = todos.filter((todo) => !!todo.completed).length;
     const totalTodos = todos.length;
     const [searchValue, setSearchValue] = React.useState(''); // estado para buscar y filtrar
-    const [newTodoText, setNewTodoText] = React.useState(''); // Estado para agregar la nueva tarea
+    const [openModal, setOpenModal] = React.useState(false)
 
-    // funciones 
+    // Main functions
+
     const searchedTodos = todos.filter((todo) => {
         const todoText = todo.text.toLowerCase();
         const searchText = searchValue.toLowerCase();
         return todoText.includes(searchText);
     });
+
+    const addTodo = (text) => {
+        if (text === '') {
+        return; 
+        }
+    
+        const newTodo = { text: text, completed: false };
+        const newTodos = [...todos, newTodo];
+        saveTodosLS(newTodos);
+    };
 
     const completeTodo = (text) => {
         const newTodos = [...todos];
@@ -37,31 +48,23 @@ function TodoProvider({children}) {
         saveTodosLS(newTodos);
     };
 
-    const addTodo = () => {
-        if (newTodoText.trim() === '') {
-        return; // Evitar agregar tareas vacías
-        }
-    
-        const newTodo = { text: newTodoText, completed: false };
-        const newTodos = [...todos, newTodo];
-        saveTodosLS(newTodos);
-        setNewTodoText('');
-    };
+
     
     return(
-    <TodoContext.Provider   value={{
-        loading,
-        error,
-        completedTodos,
-        totalTodos,
-        searchedTodos,
-        searchValue,
-        setSearchValue,
-        addTodo,
-        newTodoText,
-        setNewTodoText,
-        completeTodo,
-        deleteTodo
+    <TodoContext.Provider   
+        value={{
+            loading,
+            error,
+            completedTodos,
+            totalTodos,
+            searchedTodos,
+            searchValue,
+            setSearchValue,
+            addTodo,
+            completeTodo,
+            deleteTodo,
+            openModal,
+            setOpenModal,
     }}> {/* Todo lo que quiero comunicar entre componentes se pone dentro de value */}
         {children} 
         {/* Aquí se encapsula la lógica de la programación que queremos compartir entre los distintos componentes */}

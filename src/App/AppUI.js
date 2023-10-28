@@ -7,6 +7,8 @@ import { EmptyTodos } from "../EmptyTodos";
 import { ToDoList } from "../ToDoList";
 import { ToDoItem } from "../TodoItem/ToDoItem";
 import { ToDoBtn } from "../ToDoBtn";
+import { Modal } from "../Modal";
+import { TodoForm} from "../TodoForm";
 import { TodoContext } from "../TodoContext";
 
 function AppUI() {
@@ -16,9 +18,8 @@ function AppUI() {
     searchedTodos,
     completeTodo,
     deleteTodo,
-    addTodo,
-    newTodoText,
-    setNewTodoText,
+    openModal,
+    setOpenModal
   } = React.useContext(TodoContext);
 
   if (loading) {
@@ -30,7 +31,12 @@ function AppUI() {
   }
 
   if (!searchedTodos || searchedTodos.length === 0) {
-    return <EmptyTodos />;
+    return (
+      <>
+      <EmptyTodos />
+      <ToDoBtn />
+      </>
+      );
   }
 
   return (
@@ -52,7 +58,16 @@ function AppUI() {
           />
         ))}
       </ToDoList>
-      <ToDoBtn addTodo={addTodo} newTodoText={newTodoText} setNewTodoText={setNewTodoText} />
+      
+      <ToDoBtn
+        setOpenModal={setOpenModal}
+        />
+      {openModal && (
+        <Modal>
+          <TodoForm />
+        </Modal>
+      )}
+      
     </>
   );
 }

@@ -44,7 +44,7 @@ function useLocalStorage (itemName, initialValue) {
         
       setItem(newItem) //actualiza el estado
     }
-    console.log(item);
+    
     return {
       item, 
       saveItem,

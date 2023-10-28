@@ -37,16 +37,6 @@ body {
     border-radius: 12px;
   }
 
-  button {
-    top: 50%;
-    left: 70%;
-    height: 80px;
-    width: 80px;
-    transform: rotate(0);
-    transition: .2s ease;
-  }
-  button:hover{
-    transform: rotate(226deg);
-}
+
 
 }

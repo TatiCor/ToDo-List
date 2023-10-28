@@ -1,29 +1,27 @@
-import React from 'react';
-import './ToDoBtnStyle.css';
-// en el componente se establece el JSX
-function ToDoBtn(props) {
+import React, { useContext } from 'react';
+import './ToDoBtnStyle.css'
+import { TodoContext } from '../TodoContext'; // Asegúrate de importar el contexto adecuadamente
+
+function ToDoBtn() {
+    const {setOpenModal} = useContext(TodoContext); // Suscribirse al contexto y obtener los valores y funciones necesarios
+
+    const onClick= (event) => {
+        event.preventDefault();
+        setOpenModal(state => !state) // cambiar estado de manera dinámica
+    }
+    
     return (
         <div className='form-container'>
             <form
-                onSubmit={(event) => {
-                    event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario (recargar la página)
-
-                    if (props.newTodoText.trim() !== '') { // Verificar si el texto de la nueva tarea no está vacío
-                    props.addTodo(props.newTodoText); // Llama a la función addTodo pasada como prop con el nuevo texto
-                    }
-        }}
-        >
-        <input
-            type="text"
-            placeholder="Nueva tarea"
-            value={props.newTodoText} // El valor del campo de entrada es controlado por la propiedad newTodoText
-            onChange={(event) => props.setNewTodoText(event.target.value)} // Actualiza el valor de newTodoText cuando se cambia el campo de entrada
-        />
-        <button type="submit">+</button> {/* Botón para enviar el formulario */}
-        </form>
-    </div>
-    
+                
+            >
+                <button 
+                    type="button"
+                    className='add-todo'
+                    onClick={onClick}>+</button>
+            </form>
+        </div>
     );
 }
 
-export { ToDoBtn };
+export {ToDoBtn};

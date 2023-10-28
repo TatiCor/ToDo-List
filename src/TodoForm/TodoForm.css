@@ -1,0 +1,59 @@
+/* TodoForm.css */
+
+.todo-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  max-width: 400px;
+  height: 150px;
+  margin: 8px;
+  padding: 20px;
+  border: 1px solid #83678a;
+  border-radius: 18px;
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, #3f2646 0%, rgb(158, 117, 158) 90%);
+}
+
+.todo-form input {
+  width: 90%; 
+  padding: 10px; 
+  font-size: 16px; 
+  border: 1px solid #d9cadd;
+  margin-bottom: 20px; 
+  text-align: center;
+  color: #333; 
+}
+
+.todo-form textarea:focus,
+.todo-form input:focus { 
+  outline: 1px solid #6b3e6f; 
+}
+
+.todo-form button {
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100px; 
+  margin: 0 10px; 
+  color: #fff; 
+}
+
+.todo-form .todo-form-button--cancel {
+  background-color: #e74d3c; 
+  transition: background-color 0.8s; /* Agregado para una transición suave */
+}
+
+.todo-form .todo-form-button--add {
+  background-color: #2ecc70; 
+  transition: background-color 0.8s; /* Agregado para una transición suave */
+}
+
+.todo-form button:hover {
+  background-color: #ad87c4; /* Cambiado para resaltar el efecto hover */
+}
+

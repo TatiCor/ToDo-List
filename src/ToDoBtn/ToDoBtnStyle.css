@@ -1,4 +1,4 @@
-button {
+.add-todo {
     background-color: #FEFFAC;
     position: fixed;
     top: 35%;
@@ -13,6 +13,7 @@ button {
     border: none;  
     outline: none; 
     box-shadow: -5px 6px 10px 0px rgba(0, 0, 0, 0.575);
+    z-index: 1;
     
 }
 .form-container {
@@ -28,7 +29,7 @@ button {
 
 
 @media (min-width: 850px) {
-    button {
+    .add-todo  {
         top: 50%;
         left: 75%;
         height: 80px;
@@ -36,7 +37,7 @@ button {
         transform: rotate(0);
         transition: .2s ease;
     }
-    button:hover{
+    .add-todo:hover{
         transform: rotate(226deg);
 }  
 }
