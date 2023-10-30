@@ -14,7 +14,7 @@ function ToDoCounter() {
         <div className='container'>
             <h1>TO-DO LIST</h1>
             <h2>
-                Has completado {completedTodos} de {totalTodos} ToDos
+                You have completed {completedTodos} of {totalTodos} To-Dos
             </h2>
         </div>
     );

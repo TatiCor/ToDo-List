@@ -33,7 +33,7 @@
     ]
   },
 
-    "homepage": "https://TatiCor.github.io/ToDo-List",
+    "homepage": ".",
     "devDependencies" : {
       "gh-pages":"^6.0.0"
     }
