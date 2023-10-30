@@ -26,6 +26,6 @@ input:focus {
 .search-icon {
     position: relative;
     right: 30px;
-    fill:#FEFFAC;
+    fill:hwb(61 68% 0%);
     
 }
