@@ -30,14 +30,21 @@ function AppUI() {
     return <TodosError />;
   }
 
-  if (!searchedTodos || searchedTodos.length === 0) {
+  if (searchedTodos.length === 0) {
     return (
       <>
       <EmptyTodos />
-      <ToDoBtn />
-      </>
-      );
-  }
+        <ToDoBtn
+          setOpenModal={setOpenModal}
+          />
+          {openModal && (
+            <Modal>
+              <TodoForm />
+            </Modal>
+          )}
+        
+    </>
+    )}
 
   return (
     <>

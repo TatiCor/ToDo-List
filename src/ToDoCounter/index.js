@@ -12,10 +12,10 @@ function ToDoCounter() {
 
     return (
         <div className='container'>
-        <h1>TASKLIST</h1>
-        <h2>
-            Has completado {completedTodos} de {totalTodos} ToDos
-        </h2>
+            <h1>TO-DO LIST</h1>
+            <h2>
+                Has completado {completedTodos} de {totalTodos} ToDos
+            </h2>
         </div>
     );
 }

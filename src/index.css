@@ -1,7 +1,6 @@
 body {
     display: grid;
     place-items: center;
-    margin: 0;
     background-color: #35155D;
     font-family: sans-serif;
     color: #F9F5F6;

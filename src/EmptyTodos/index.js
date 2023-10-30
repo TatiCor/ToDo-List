@@ -1,8 +1,12 @@
 import React from "react";
+import './EmptyTodos.css'
 
 function EmptyTodos() {
     return (
-        <p>Add your first To-Do!</p>
+        <div>
+            <h1>TO-DO LIST</h1>
+            <p className="empty-todo">Add your first To-Do!</p>
+        </div>
     )
 }
 
