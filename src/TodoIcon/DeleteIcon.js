@@ -6,7 +6,7 @@ function DeleteIcon(props) {
         <TodoIcon
             type="delete"
             color="gray"
-            onClick={props.onClick} // Debes pasar props.onClick en lugar de props.onDelete
+            onClick={props.onClick} 
         />
     );
 }

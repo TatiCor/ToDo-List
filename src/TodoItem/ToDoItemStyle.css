@@ -6,7 +6,7 @@ li {
     border-radius: 8px;
     padding: 20px;
     text-align: center;
-    min-height: 80px; /* Establece una altura mínima para mantener el tamaño fijo */
+    min-height: 80px; 
   }
   
   li:hover {

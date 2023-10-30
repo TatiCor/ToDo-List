@@ -6,7 +6,7 @@ function CompleteIcon(props) {
         <TodoIcon
             type="check"
             color={props.completed ? '#63c452' : '#808080'}
-            onClick={props.onClick} // Debes pasar props.onClick en lugar de props.onComplete
+            onClick={props.onClick} 
             completed={props.completed}
         />
     );

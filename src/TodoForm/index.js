@@ -31,7 +31,7 @@ function TodoForm() {
     return(
         <form 
             className="todo-form"
-            onSubmit={onSubmit} // Usar la función unificada para agregar tareas
+            onSubmit={onSubmit} 
         >   
             <input
                 placeholder="Add your task!"

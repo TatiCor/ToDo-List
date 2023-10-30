@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import './ToDoBtnStyle.css'
-import { TodoContext } from '../TodoContext'; // Asegúrate de importar el contexto adecuadamente
-
+import { TodoContext } from '../TodoContext'; 
 function ToDoBtn() {
-    const {setOpenModal} = useContext(TodoContext); // Suscribirse al contexto y obtener los valores y funciones necesarios
+    const {setOpenModal} = useContext(TodoContext);
 
     const onClick= (event) => {
         event.preventDefault();
-        setOpenModal(state => !state) // cambiar estado de manera dinámica
+        setOpenModal(state => !state) 
     }
     
     return (

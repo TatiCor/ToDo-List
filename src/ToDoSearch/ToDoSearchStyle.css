@@ -1,7 +1,7 @@
 .container-input{
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 input {
     width: 60%;
@@ -15,10 +15,17 @@ input:hover {
     background-color:  #f9f5f6b4;
 }
 input::placeholder {
-    color: #FEFFAC; 
+    color: #FEFFAC;
+
 }
 input:focus {
-    outline: 2px solid #FEFFAC; /* Cambia el color, el grosor y el estilo del contorno según tus preferencias */
+    outline: 2px solid #FEFFAC;
     
+    
+}
+.search-icon {
+    position: relative;
+    right: 30px;
+    fill:#FEFFAC;
     
 }

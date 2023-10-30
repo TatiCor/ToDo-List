@@ -65,12 +65,10 @@ function TodoProvider({children}) {
             deleteTodo,
             openModal,
             setOpenModal,
-    }}> {/* Todo lo que quiero comunicar entre componentes se pone dentro de value */}
+    }}>
         {children} 
-        {/* Aquí se encapsula la lógica de la programación que queremos compartir entre los distintos componentes */}
     </TodoContext.Provider>
     )}
-
 
 
 
