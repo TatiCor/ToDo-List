@@ -9,6 +9,9 @@ import { Modal } from "../Modal";
 import { TodoForm} from "../TodoForm";
 import { TodoContext } from "../TodoContext";
 import { TodoHeader } from "../TodoHeader/TodoHeader";
+import { ToDoCounter } from "../ToDoCounter";
+import { ToDoSearch} from "../ToDoSearch"
+
 
 function AppUI() {
   const {
@@ -51,12 +54,17 @@ function AppUI() {
 
   return (
     <>
-      <TodoHeader
-        completedTodos={completedTodos}
-        totalTodos={totalTodos}
-        searchValue={searchValue} 
-        setSearchValue={setSearchValue}
-      />
+      <TodoHeader>
+        <ToDoCounter 
+          totalTodos={totalTodos}
+          completedTodos={completedTodos}
+        />
+        <ToDoSearch
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
+      </TodoHeader>
+      
       <ToDoList>
         {searchedTodos.map((todo) => (
           <ToDoItem
