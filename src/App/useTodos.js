@@ -1,9 +1,10 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage.js"
 
-const TodoContext = React.createContext(); // creamos un contexto
 
-function TodoProvider({children}) {
+
+// Convertimos en un custom hook y nos deshacemos del contexto
+function useTodos() {
     // States
     const {
         item: todos, 
@@ -17,7 +18,6 @@ function TodoProvider({children}) {
     const [openModal, setOpenModal] = React.useState(false)
 
     // Main functions
-
     const searchedTodos = todos.filter((todo) => {
         const todoText = todo.text.toLowerCase();
         const searchText = searchValue.toLowerCase();
@@ -48,11 +48,9 @@ function TodoProvider({children}) {
         saveTodosLS(newTodos);
     };
 
-
-    
+// eliminamos provider y hacemos un objeto con las props
     return(
-    <TodoContext.Provider   
-        value={{
+        {
             loading,
             error,
             completedTodos,
@@ -65,13 +63,12 @@ function TodoProvider({children}) {
             deleteTodo,
             openModal,
             setOpenModal,
-    }}>
-        {children} 
-    </TodoContext.Provider>
-    )}
+        }
+        )
+    }
 
 
 
 
 
-export { TodoContext, TodoProvider}
+export {useTodos};

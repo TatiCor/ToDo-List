@@ -1,4 +1,6 @@
 import React from "react";
+// eliminamos el context
+
 function useLocalStorage (itemName, initialValue) {
     
     // declaro estado inicial

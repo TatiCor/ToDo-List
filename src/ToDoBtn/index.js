@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React  from 'react';
 import './ToDoBtnStyle.css'
-import { TodoContext } from '../TodoContext'; 
-function ToDoBtn() {
-    const {setOpenModal} = useContext(TodoContext);
+
+function ToDoBtn( {setOpenModal}) {
 
     const onClick= (event) => {
         event.preventDefault();
