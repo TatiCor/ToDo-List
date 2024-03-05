@@ -1,6 +1,4 @@
 import React from "react";
-import { ToDoCounter } from "../ToDoCounter";
-import { ToDoSearch } from "../ToDoSearch";
 import { TodosLoading } from "../TodosLoading";
 import { TodosError } from "../TodosError";
 import { EmptyTodos } from "../EmptyTodos";
@@ -10,6 +8,7 @@ import { ToDoBtn } from "../ToDoBtn";
 import { Modal } from "../Modal";
 import { TodoForm} from "../TodoForm";
 import { TodoContext } from "../TodoContext";
+import { TodoHeader } from "../TodoHeader/TodoHeader";
 
 function AppUI() {
   const {
@@ -19,7 +18,11 @@ function AppUI() {
     completeTodo,
     deleteTodo,
     openModal,
-    setOpenModal
+    setOpenModal,
+    completedTodos,
+    totalTodos,
+    searchValue, 
+    setSearchValue
   } = React.useContext(TodoContext);
 
   if (loading) {
@@ -48,8 +51,12 @@ function AppUI() {
 
   return (
     <>
-      <ToDoCounter />
-      <ToDoSearch />
+      <TodoHeader
+        completedTodos={completedTodos}
+        totalTodos={totalTodos}
+        searchValue={searchValue} 
+        setSearchValue={setSearchValue}
+      />
       <ToDoList>
         {searchedTodos.map((todo) => (
           <ToDoItem
