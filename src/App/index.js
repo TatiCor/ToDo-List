@@ -30,7 +30,9 @@ function App() {
     setSearchValue
   } = useTodos();
 
-  /* if (loading) {
+  /* 
+  Eliminamos conditional rendering y hacemos props render en TodoList - 
+  if (loading) {
     return ;
   }
 
@@ -74,10 +76,12 @@ function App() {
       <ToDoList
         loading={loading}
         error={error}
+        totalTodos={totalTodos}
         searchedTodos={searchedTodos}
         onError={() => <TodosError />}
         onLoading={() => <TodosLoading />}
         onEmpty={()=> <EmptyTodos searchedTodos={searchedTodos}/>}
+        onEmptySearchResult={(searchText) => <p>Not found {searchText}</p>}
         render={(todo) => (
           <ToDoItem
             key={todo.text}

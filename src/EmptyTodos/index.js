@@ -5,7 +5,6 @@ import { TodoForm } from "../TodoForm";
 import './EmptyTodos.css';
 
 function EmptyTodos({ addTodo, openModal, setOpenModal, searchedTodos }) {
-    console.log("searchedTodos:", searchedTodos);
     return (
         <div>
             {(searchedTodos?.length === 0) && <p className="empty-todo">Add your first To-Do!</p>}

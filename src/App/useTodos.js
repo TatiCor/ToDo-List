@@ -19,11 +19,12 @@ function useTodos() {
 
     // Main functions
     const searchedTodos = todos.filter((todo) => {
-        const todoText = todo.text.toLowerCase();
-        const searchText = searchValue.toLowerCase();
-        return todoText.includes(searchText);
+        const todoText = todo.text.toLowerCase(); // obtengo el texto de cada TODO
+        const searchText = searchValue.toLowerCase(); // lo paso a minuscula --> asegura búsqueda insensible a mayúsculas y minúsculas
+        return todoText.includes(searchText); // para determinar si el texto del todo incluye el valor de búsqueda --> lo devuelve en un nuevo array
     });
 
+    console.log("searched todos ", searchedTodos);
     const addTodo = (text) => {
         if (text === '') {
         return; 
