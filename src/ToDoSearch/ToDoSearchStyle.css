@@ -23,6 +23,9 @@ input:focus {
     
     
 }
+input:disabled {
+    opacity: 50%;
+}
 .search-icon {
     position: relative;
     right: 30px;

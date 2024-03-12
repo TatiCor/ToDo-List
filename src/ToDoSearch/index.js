@@ -2,7 +2,7 @@ import './ToDoSearchStyle.css';
 import { SlMagnifier } from "react-icons/sl";
 
 
-function ToDoSearch({searchValue, setSearchValue}) {
+function ToDoSearch({searchValue, setSearchValue, loading}) {
 
     return (
         <div className='container-input'>
@@ -13,7 +13,7 @@ function ToDoSearch({searchValue, setSearchValue}) {
                 onChange={(event) => {
                 setSearchValue(event.target.value);
                 }}
-                
+                disabled={loading}
             />
             <SlMagnifier className='search-icon'/>
         </div>
