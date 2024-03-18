@@ -10,7 +10,8 @@ function useTodos() {
         item: todos, 
         saveItem: saveTodosLS,
         loading,
-        error
+        error,
+        sincronizeItem: sincronizeTodos
     } = useLocalStorage('Todos_V1', []); // Estado para establecer to dos 
     const completedTodos = todos.filter((todo) => !!todo.completed).length;
     const totalTodos = todos.length;
@@ -64,6 +65,7 @@ function useTodos() {
             deleteTodo,
             openModal,
             setOpenModal,
+            sincronizeTodos
         }
         )
     }

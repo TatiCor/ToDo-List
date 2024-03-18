@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 // eliminamos el context
 
 function useLocalStorage (itemName, initialValue) {
-    
+    // Sincronización entre pestañas de un mismo navegador
+    const [sincronized, setSincronized] = useState(true)
     // declaro estado inicial
     const [item, setItem] = React.useState(initialValue);
 
@@ -29,13 +30,14 @@ function useLocalStorage (itemName, initialValue) {
             setItem(parsedItem)
           }
           setLoading(false)
+          setSincronized(true)
         } catch(error){
           setLoading(false)
           console.log('Hubo un error al leer el item del local storage', error);
           setError(true)
         }     
           }, 2000);
-      }, []);
+      }, [sincronized]);
     
 
       //fx para actualizar localStorage y estado
@@ -46,12 +48,18 @@ function useLocalStorage (itemName, initialValue) {
         
       setItem(newItem) //actualiza el estado
     }
+
+    const sincronizeItem = () => {
+      setLoading(true);
+      setSincronized(false)
+    }
     
     return {
       item, 
       saveItem,
       loading,
-      error
+      error,
+      sincronizeItem
   };
   }
 
