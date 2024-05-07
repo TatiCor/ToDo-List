@@ -7,7 +7,7 @@ function ToDoCounter({completedTodos, totalTodos, loading}) {
         <div className='container'>
             <h1>TO-DO LIST</h1>
             <h2 className={`todo-counter ${!!loading && "todo-counter-loading"}`}>
-                You have completed {completedTodos} of {totalTodos} To-Dos
+                You have completed {completedTodos} of {totalTodos} TODOs
             </h2>
         </div>
     );

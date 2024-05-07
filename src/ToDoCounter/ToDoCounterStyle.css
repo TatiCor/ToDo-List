@@ -16,12 +16,13 @@ h1 {
     padding: 48px;
     margin: 0;    
 }
-h2 .todo-counter{
+h2 {
     color: #f6f5f7;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     text-align: center;
-    padding: 48px;
+    text-wrap: wrap;
+    padding: 42px;
     margin: 0;
 }
 

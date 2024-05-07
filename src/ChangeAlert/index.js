@@ -1,18 +1,21 @@
 import React from "react";
-import { withStorageListener } from "./withStorageListener";
+import { useStorageListener } from "./useStorageListener";
 import { MdUpdate } from "react-icons/md";
 import './styles.css'
 
-function ChangeAlert({show, toggleShow}) {
+function ChangeAlert({ sincronize }) {
+    const { show, toggleShow } = useStorageListener(sincronize); //Llamo a mi custom hook 
+
     const containerClass = show ? "container-alert show" : "container-alert"
     if (show) {
+
         return (
             <div className="changeAlert-bg">
                 <div className={containerClass}>
                     <div >
                         <p className="alert">Se realizaron cambios en otra ventana del navegador. </p>
                         <button 
-                            onClick={()=> toggleShow(false)}
+                            onClick={toggleShow}
                             className="btn-close-alert"
                         >
                             <span className="text-btn">Actualizar</span>
@@ -27,9 +30,7 @@ function ChangeAlert({show, toggleShow}) {
     }
 }
 
-// HOC - envolvemos en otro componente withStorageListener y lo exportamos para llamarlo en app
-const ChangeAlertWithStorageListener = withStorageListener(ChangeAlert)
 
 
-export { ChangeAlertWithStorageListener }
+export { ChangeAlert }
 

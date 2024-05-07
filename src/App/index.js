@@ -12,7 +12,7 @@ import { TodoHeader } from "../TodoHeader/TodoHeader";
 import { ToDoCounter } from "../ToDoCounter";
 import { ToDoSearch} from "../ToDoSearch"
 import { EmptySearchResult } from "../EmptySearchResult";
-import { ChangeAlertWithStorageListener } from "../ChangeAlert";
+import { ChangeAlert } from "../ChangeAlert";
 
 
 
@@ -117,7 +117,7 @@ function App() {
         </Modal>
       )}
 
-      <ChangeAlertWithStorageListener
+      <ChangeAlert
         sincronize={sincronizeTodos}
       />
       

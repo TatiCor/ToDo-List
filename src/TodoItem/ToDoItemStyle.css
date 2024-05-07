@@ -1,10 +1,11 @@
 li {
     display: grid;
+    place-items: center;
     grid-template-columns: auto 1fr auto;
     background-color: #fcdde081;
     margin: 20px;
     border-radius: 8px;
-    padding: 20px;
+    padding: 4px;
     text-align: center;
     min-height: 80px; 
   }
@@ -16,9 +17,13 @@ li {
   
 
 .todo-item {
-    font-size: 24px;
-    margin: 24px 0 24px 24px;
-    width: calc(100% - 120px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    margin: 18px;
+    width: auto;
+    background-color: rebeccapurple;
 
     
 }

@@ -29,6 +29,7 @@
     background-color: rgba(0, 0, 0, 0.76);
 }
 .alert {
+    text-wrap: wrap;
     text-align: center;
     font-weight: bold;
 }
