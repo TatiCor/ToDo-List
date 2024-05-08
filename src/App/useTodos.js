@@ -50,25 +50,28 @@ function useTodos() {
         saveTodosLS(newTodos);
     };
 
-// eliminamos provider y hacemos un objeto con las props
-    return(
-        {
-            loading,
-            error,
-            completedTodos,
-            totalTodos,
-            searchedTodos,
-            searchValue,
-            setSearchValue,
-            addTodo,
-            completeTodo,
-            deleteTodo,
-            openModal,
-            setOpenModal,
-            sincronizeTodos
-        }
-        )
+    const states = {
+        loading,
+        error,
+        completedTodos,
+        totalTodos,
+        searchedTodos,
+        searchValue,
+        openModal,
+    };
+
+    const stateUpdaters = {
+        setSearchValue,
+        addTodo,
+        completeTodo,
+        deleteTodo,            
+        setOpenModal,
+        sincronizeTodos
     }
+// eliminamos provider y hacemos un objeto con las props
+
+    return ({ states, stateUpdaters })
+}
 
 
 

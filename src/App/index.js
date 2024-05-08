@@ -18,20 +18,28 @@ import { ChangeAlert } from "../ChangeAlert";
 
 function App() {  
   const {
+    states,
+    stateUpdaters,
+  } = useTodos();
+
+  const {
     loading,
     error,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
-    addTodo,
     completedTodos,
     totalTodos,
-    searchValue, 
+    searchedTodos,
+    searchValue,
+    openModal,
+  } = states;
+
+  const {
     setSearchValue,
-    sincronizeTodos,
-  } = useTodos();
+    addTodo,
+    completeTodo,
+    deleteTodo,            
+    setOpenModal,
+    sincronizeTodos
+  } = stateUpdaters;
 
   /* 
   Eliminamos conditional rendering y hacemos props render en TodoList - 
