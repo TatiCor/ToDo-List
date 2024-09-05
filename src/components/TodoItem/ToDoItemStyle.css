@@ -1,7 +1,7 @@
 li {
-    display: grid;
-    place-items: center;
-    grid-template-columns: auto 1fr auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #fcdde081;
     margin: 20px;
     border-radius: 8px;
@@ -10,18 +10,17 @@ li {
     min-height: 80px; 
   }
   
-  li:hover {
-    background-color: #f9f5f686;
+li:hover {
+  background-color: #f9f5f686;
 
-  }
-  
+}
 
 .todo-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 22px;
+    font-size: 18px;
     margin: 18px;
-    width: auto;    
+    width: 100%;    
 }
 

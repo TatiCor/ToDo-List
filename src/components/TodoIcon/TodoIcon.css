@@ -4,10 +4,10 @@
     align-items: center;
     font-weight: bolder;
     background-color:  #f9f5f6a6;
-    margin: 20px;
+    margin: 8px;
     border-radius: 50%;
-    height: 24px;
-    width: 24px;
+    height: 14px;
+    width: 14px;
     padding: 12px;
     color: black;
     cursor: pointer;
@@ -17,21 +17,24 @@
 .icon-container-check--active {
     background-color: #5cf341;
 }
+
 .todo-item--complete{
     text-decoration: line-through;
 }
 
 .icon-svg {
-    width: 22px;
-    height: 22px;
+    width: 14px;
+    height: 14px;
 }
 
+.icon-container-delete .icon-svg:hover {
+    fill: red;
+}
 
-@media (min-width: 850px) {
-    .icon-container-delete .icon-svg:hover {
-        fill: red;
-    }
-    .icon-container-check .icon-svg:hover {
-        fill: #63c452;
-    }
-}                               
+.icon-container-check .icon-svg:hover {
+    fill: #63c452;
+}
+
+.icon-container-edit .icon-svg:hover {
+    fill: #00D8FF;
+}

@@ -5,6 +5,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
+    "react-router-dom": "^6.26.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -33,9 +34,8 @@
       "last 1 safari version"
     ]
   },
-
-    "homepage": ".",
-    "devDependencies" : {
-      "gh-pages":"^6.0.0"
-    }
+  "homepage": ".",
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  }
 }

@@ -1,8 +1,6 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage.js"
 
-
-
 // Convertimos en un custom hook y nos deshacemos del contexto
 function useTodos() {
     // States
@@ -12,7 +10,7 @@ function useTodos() {
         loading,
         error,
         sincronizeItem: sincronizeTodos
-    } = useLocalStorage('Todos_V1', []); // Estado para establecer to dos 
+    } = useLocalStorage('Todos_V2', []); // Estado para establecer to dos 
     const completedTodos = todos.filter((todo) => !!todo.completed).length;
     const totalTodos = todos.length;
     const [searchValue, setSearchValue] = React.useState(''); // estado para buscar y filtrar
@@ -24,31 +22,35 @@ function useTodos() {
         const searchText = searchValue.toLowerCase(); // lo paso a minuscula --> asegura búsqueda insensible a mayúsculas y minúsculas
         return todoText.includes(searchText); // para determinar si el texto del todo incluye el valor de búsqueda --> lo devuelve en un nuevo array
     });
-
-    console.log("searched todos ", searchedTodos);
-    const addTodo = (text) => {
-        if (text === '') {
-        return; 
-        }
     
-        const newTodo = { text: text, completed: false };
+    // add to-do
+    const addTodo = (text) => {
+        const id = newTodoId()
+        const newTodo = { id, text, completed: false };
         const newTodos = [...todos, newTodo];
         saveTodosLS(newTodos);
     };
-
-    const completeTodo = (text) => {
+    // to-do completed
+    const completeTodo = (id) => {
         const newTodos = [...todos];
-        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+        const todoIndex = newTodos.findIndex((todo) => todo.id === id);
         newTodos[todoIndex].completed = true;
         saveTodosLS(newTodos);
     };
-
-    const deleteTodo = (text) => {
+    // delete to-do
+    const deleteTodo = (id) => {
         const newTodos = [...todos];
-        const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+        const todoIndex = newTodos.findIndex((todo) => todo.id === id);
         newTodos.splice(todoIndex, 1);
+        console.log("hiciste clic para eliminar un to do");
+        
         saveTodosLS(newTodos);
     };
+    // edit to-do
+    const editTodo = (id) => {
+        console.log("clic editar");
+        
+    }
 
     const states = {
         loading,
@@ -64,16 +66,20 @@ function useTodos() {
         setSearchValue,
         addTodo,
         completeTodo,
-        deleteTodo,            
+        deleteTodo,
+        editTodo,            
         setOpenModal,
         sincronizeTodos
     }
-// eliminamos provider y hacemos un objeto con las props
 
+    // to-do ID generator
+    const newTodoId = () => {
+        return Date.now();
+    }
+
+// eliminamos provider y hacemos un objeto con las props
     return ({ states, stateUpdaters })
 }
-
-
 
 
 
