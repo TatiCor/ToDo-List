@@ -34,7 +34,7 @@ function TodoForm(props) {
                 onChange={onChange}
             />
 
-            <div>
+            <div className="btn-container">
                 <button
                     type="button"
                     className="todo-form-button--cancel"

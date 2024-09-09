@@ -24,7 +24,7 @@
   padding: 10px;
   font-size: 16px;
   border: 1px solid #d9cadd;
-  margin-bottom: 16px; /* Reduced margin for better spacing */
+  margin-bottom: 16px;
   text-align: center;
   color: #333;
 }
@@ -35,10 +35,16 @@
 
 .todo-form input:focus,
 .todo-form {
-  outline: none; /* Removed outline for a cleaner look */
+  outline: none; 
   border-color: #6b3e6f;
 }
 
+.todo-form .btn-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
 .todo-form button {
   padding: 12px 20px;
   font-size: 16px;
