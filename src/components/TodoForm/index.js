@@ -1,35 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './TodoForm.css'
 
 
-function TodoForm({addTodo, setOpenModal}) {
-    const [newTodoText, setNewTodoText] = React.useState(''); // Estado para agregar la nueva tarea
 
-    const onSubmit = (event) => {
-        event.preventDefault();
-        addTodo(newTodoText);
-        setNewTodoText("");
-        setOpenModal(false);
-        
-
-    };
+function TodoForm(props) {
+    const [newTodoText, setNewTodoText] = useState(props.defaultValue || '');// Estado para agregar la nueva tarea
+    const navigate = useNavigate()
 
     const onCancel = (event) => {
         event.preventDefault();
-        setOpenModal(false);
+        navigate('/');
     }
 
     const onChange = (event) => {
         setNewTodoText(event.target.value);
-    } 
+    }
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        props.submitEvent(newTodoText);
+        navigate('/');
+    };
 
     return(
         <form 
             className="todo-form"
             onSubmit={onSubmit} 
         >   
+            <label>{props.label}</label>
             <input
-                placeholder="Add your task!"
                 value={newTodoText}
                 onChange={onChange}
             />
@@ -47,7 +47,7 @@ function TodoForm({addTodo, setOpenModal}) {
                     className="todo-form-button--add"
                     
                 >
-                    Add
+                    {props.submitText}
                 </button>
             </div>
         </form>

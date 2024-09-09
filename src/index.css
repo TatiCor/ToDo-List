@@ -10,7 +10,7 @@ body {
     height: 100vh;
 }
 
-#root {
+/* #root {
   display: flex;
   flex-direction: column;
   background-image: url('https://img.freepik.com/foto-gratis/fondo-gradiente-abstracto-textura-grano_84443-2837.jpg?w=996&t=st=1715199178~exp=1715199778~hmac=37322bf398b8a8209eb1659f7e0b79317e1309a9a000610e3234e3c0a7ab5656');
@@ -29,8 +29,8 @@ body {
 body, #root {
   overflow-x: hidden;
 }
-
-
+ */
+/* 
 
 @media (min-width: 1000px) {
   #root {
@@ -40,4 +40,4 @@ body, #root {
 
 
 
-}
+} */

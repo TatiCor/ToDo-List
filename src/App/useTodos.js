@@ -14,15 +14,14 @@ function useTodos() {
     const completedTodos = todos.filter((todo) => !!todo.completed).length;
     const totalTodos = todos.length;
     const [searchValue, setSearchValue] = React.useState(''); // estado para buscar y filtrar
-    const [openModal, setOpenModal] = React.useState(false)
 
     // Main functions
     const searchedTodos = todos.filter((todo) => {
-        const todoText = todo.text.toLowerCase(); // obtengo el texto de cada TODO
-        const searchText = searchValue.toLowerCase(); // lo paso a minuscula --> asegura búsqueda insensible a mayúsculas y minúsculas
-        return todoText.includes(searchText); // para determinar si el texto del todo incluye el valor de búsqueda --> lo devuelve en un nuevo array
+        const todoText = todo.text || ''; // Verifica que todo.text no sea undefined
+        const searchText = searchValue.toLowerCase(); // Búsqueda insensible a mayúsculas y minúsculas
+        return todoText.toLowerCase().includes(searchText); // Asegúrate de que ambos textos estén en minúsculas
     });
-    
+
     // add to-do
     const addTodo = (text) => {
         const id = newTodoId()
@@ -30,6 +29,12 @@ function useTodos() {
         const newTodos = [...todos, newTodo];
         saveTodosLS(newTodos);
     };
+    
+    // get to-do
+    const getTodoById = (id) => {
+        return todos.find(todo => todo.id === id)
+    }
+
     // to-do completed
     const completeTodo = (id) => {
         const newTodos = [...todos];
@@ -47,8 +52,11 @@ function useTodos() {
         saveTodosLS(newTodos);
     };
     // edit to-do
-    const editTodo = (id) => {
-        console.log("clic editar");
+    const editTodo = (id, newText) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex((todo) => todo.id === id);
+        newTodos[todoIndex].text = newText;
+        saveTodosLS(newTodos);
         
     }
 
@@ -59,17 +67,18 @@ function useTodos() {
         totalTodos,
         searchedTodos,
         searchValue,
-        openModal,
     };
 
     const stateUpdaters = {
         setSearchValue,
+        getTodoById,
         addTodo,
+        editTodo,
         completeTodo,
         deleteTodo,
         editTodo,            
-        setOpenModal,
         sincronizeTodos
+        
     }
 
     // to-do ID generator
@@ -77,7 +86,7 @@ function useTodos() {
         return Date.now();
     }
 
-// eliminamos provider y hacemos un objeto con las props
+    // eliminamos provider y hacemos un objeto con las props
     return ({ states, stateUpdaters })
 }
 

@@ -19,9 +19,7 @@ input::placeholder {
 
 }
 input:focus {
-    outline: 2px solid #FEFFAC;
-    
-    
+    outline: 2px solid #FEFFAC; 
 }
 input:disabled {
     opacity: 50%;

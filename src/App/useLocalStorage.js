@@ -1,4 +1,4 @@
-import React, { useReducer} from "react";
+import React, { useReducer, useEffect} from "react";
 // eliminamos el context
 
 const initialState = ({ initialValue }) => ({
@@ -82,7 +82,7 @@ function useLocalStorage (itemName, initialValue) {
     type: actionTypes.sincronize,
   })
 
-  React.useEffect(() => {
+  useEffect(() => {
     setTimeout(() => {
       try{
         const localStorageItem = localStorage.getItem(itemName);

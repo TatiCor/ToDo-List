@@ -21,7 +21,8 @@ function ToDoItem(props) {
                     onClick={props.onDelete} 
                 />
 
-                <EditIcon onClick={props.onEdit}/></div>
+                <EditIcon onClick={props.onEdit}/>
+            </div>
         </li>
     );
 }

@@ -1,13 +1,7 @@
 import React  from 'react';
 import './ToDoBtnStyle.css'
 
-function ToDoBtn( {setOpenModal}) {
-
-    const onClick= (event) => {
-        event.preventDefault();
-        setOpenModal(state => !state) 
-    }
-    
+function ToDoBtn(props) {
     return (
         <div className='form-container'>
             <form
@@ -16,7 +10,7 @@ function ToDoBtn( {setOpenModal}) {
                 <button 
                     type="button"
                     className='add-todo'
-                    onClick={onClick}>+</button>
+                    onClick={props.onClick}>+</button>
             </form>
         </div>
     );
