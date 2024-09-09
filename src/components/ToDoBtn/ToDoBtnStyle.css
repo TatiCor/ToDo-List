@@ -1,6 +1,8 @@
 .add-todo {
     background-color: #FEFFAC;
     position: fixed;
+    display: grid;
+    place-items: center;
     top: 35%;
     left: 84%;
     height: 50px;
